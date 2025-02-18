@@ -2,11 +2,11 @@
 param location string = resourceGroup().location
 
 // Variables
-var uniqueString = uniqueString(resourceGroup().id)
-var storageAccountName = 'store${uniqueString}'
-var eventHubNamespaceName = 'ehns${uniqueString}'
-var eventHubName = 'eh${uniqueString}'
-var databricksWorkspaceName = 'dbw${uniqueString}'
+var uniqueName = uniqueString(resourceGroup().id)
+var storageAccountName = 'store${uniqueName}'
+var eventHubNamespaceName = 'ehns${uniqueName}'
+var eventHubName = 'eh${uniqueName}'
+var databricksWorkspaceName = 'dbw${uniqueName}'
 
 // Storage Account
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
@@ -58,6 +58,6 @@ resource databricks 'Microsoft.Databricks/workspaces@2022-04-01-preview' = {
     name: 'premium'
   }
   properties: {
-    managedResourceGroupId: subscriptionResourceId('Microsoft.Resources/resourceGroups', 'databricks-rg-${uniqueString}')
+    managedResourceGroupId: subscriptionResourceId('Microsoft.Resources/resourceGroups', 'databricks-rg-${uniqueName}')
   }
 }
