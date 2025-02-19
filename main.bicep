@@ -5,7 +5,6 @@ param location string = resourceGroup().location
 var uniqueName = uniqueString(resourceGroup().id)
 var storageAccountName = 'store${uniqueName}'
 var eventHubNamespaceName = 'ehns${uniqueName}'
-var eventHubName = 'eh${uniqueName}'
 var databricksWorkspaceName = 'dbw${uniqueName}'
 
 // Storage Account
@@ -39,10 +38,73 @@ resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-11-01' = {
   }
 }
 
-// Event Hub
-resource eventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+// Event Hubs
+resource organizationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
   parent: eventHubNamespace
-  name: eventHubName
+  name: 'fhir-organization'
+  properties: {
+    messageRetentionInDays: 7
+    partitionCount: 4
+  }
+}
+
+resource locationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+  parent: eventHubNamespace
+  name: 'fhir-location'
+  properties: {
+    messageRetentionInDays: 7
+    partitionCount: 4
+  }
+}
+
+resource practitionerEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+  parent: eventHubNamespace
+  name: 'fhir-practitioner'
+  properties: {
+    messageRetentionInDays: 7
+    partitionCount: 4
+  }
+}
+
+resource practitionerRoleEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+  parent: eventHubNamespace
+  name: 'fhir-practitioner-role'
+  properties: {
+    messageRetentionInDays: 7
+    partitionCount: 4
+  }
+}
+
+resource patientEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+  parent: eventHubNamespace
+  name: 'fhir-patient'
+  properties: {
+    messageRetentionInDays: 7
+    partitionCount: 4
+  }
+}
+
+resource encounterEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+  parent: eventHubNamespace
+  name: 'fhir-encounter'
+  properties: {
+    messageRetentionInDays: 7
+    partitionCount: 4
+  }
+}
+
+resource conditionEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+  parent: eventHubNamespace
+  name: 'fhir-condition'
+  properties: {
+    messageRetentionInDays: 7
+    partitionCount: 4
+  }
+}
+
+resource observationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+  parent: eventHubNamespace
+  name: 'fhir-observation'
   properties: {
     messageRetentionInDays: 7
     partitionCount: 4
