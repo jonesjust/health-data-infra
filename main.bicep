@@ -113,7 +113,7 @@ resource observationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01
 
 
 // Databricks Workspace
-resource databricks 'Microsoft.Databricks/workspaces@2022-04-01-preview' = {
+resource databricks 'Microsoft.Databricks/workspaces@2024-09-01-preview' = {
   name: databricksWorkspaceName
   location: location
   sku: {
