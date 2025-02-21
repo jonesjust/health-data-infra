@@ -24,7 +24,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
 
 
 // Event Hubs Namespace
-resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-11-01' = {
+resource eventHubNamespace 'Microsoft.EventHub/namespaces@2024-01-01' = {
   name: eventHubNamespaceName
   location: location
   sku: {
@@ -35,7 +35,7 @@ resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-11-01' = {
 }
 
 // Event Hubs
-resource organizationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource organizationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-organization'
   properties: {
@@ -44,7 +44,7 @@ resource organizationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-0
   }
 }
 
-resource locationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource locationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-location'
   properties: {
@@ -53,7 +53,7 @@ resource locationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' =
   }
 }
 
-resource practitionerEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource practitionerEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-practitioner'
   properties: {
@@ -62,7 +62,7 @@ resource practitionerEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-0
   }
 }
 
-resource practitionerRoleEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource practitionerRoleEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-practitioner-role'
   properties: {
@@ -71,7 +71,7 @@ resource practitionerRoleEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-
   }
 }
 
-resource patientEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource patientEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-patient'
   properties: {
@@ -80,7 +80,7 @@ resource patientEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = 
   }
 }
 
-resource encounterEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource encounterEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-encounter'
   properties: {
@@ -89,7 +89,7 @@ resource encounterEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' 
   }
 }
 
-resource conditionEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource conditionEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-condition'
   properties: {
@@ -98,7 +98,7 @@ resource conditionEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' 
   }
 }
 
-resource observationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource observationEventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
   name: 'fhir-observation'
   properties: {
