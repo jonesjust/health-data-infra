@@ -8,7 +8,7 @@ var eventHubNamespaceName = 'ehns${uniqueName}'
 var databricksWorkspaceName = 'dbw${uniqueName}'
 
 // Storage Account
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -16,13 +16,9 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
   }
   kind: 'StorageV2'
   properties: {
-    isHnsEnabled: true
-    minimumTlsVersion: 'TLS1_2'
+    accessTier: 'Hot'
     allowBlobPublicAccess: false
-    networkAcls: {
-      bypass: 'AzureServices'
-      defaultAction: 'Allow'
-    }
+    isHnsEnabled: true
   }
 }
 
