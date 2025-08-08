@@ -24,7 +24,7 @@ Deploys automatically to Azure via GitHub Actions on pushes to `main`.
   - `fhir-observation`
 - **Azure Databricks Workspace** (Premium SKU)
 
-### Manual Deployment
+## Manual Deployment
 
 If you want to deploy locally instead of using Actions
 
