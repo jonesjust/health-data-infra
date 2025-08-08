@@ -1,6 +1,6 @@
 ## Overview
 
-This repository defines Azure infrastructure for a lightweight health data platform.  
+This repository defines Azure infrastructure for a real-time health data platform.  
 Deploys automatically to Azure via GitHub Actions on pushes to `main`.
 
 ## Prerequisites
@@ -32,7 +32,7 @@ If you want to deploy locally instead of using Actions
 `az login`
 `az account set --subscription "<your-subscription-id>"`
 
-#### Ensure RG exists
+#### Ensure resource group exists
 `az group create -n health-data-platform -l eastus2`
 
 #### Build (optional; az can deploy .bicep directly)
