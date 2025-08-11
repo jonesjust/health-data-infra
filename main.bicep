@@ -4,6 +4,7 @@ param location string = resourceGroup().location
 // Variables
 var uniqueName = uniqueString(resourceGroup().id)
 var storageAccountName = 'store${uniqueName}'
+var keyVaultName = 'kv${uniqueName}'
 var eventHubNamespaceName = 'ehns${uniqueName}'
 var databricksWorkspaceName = 'dbw${uniqueName}'
 
@@ -19,6 +20,18 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
     accessTier: 'Hot'
     allowBlobPublicAccess: false
     isHnsEnabled: true
+  }
+}
+
+// Key Vault with vault access policy permission model
+resource keyVault 'Microsoft.KeyVault/vaults@2024-01-01' = {
+  name: keyVaultName
+  location: location
+  sku: {
+    name: 'standard'
+  }
+  properties: {
+    enableRbacAuthorization: false
   }
 }
 
