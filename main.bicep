@@ -27,11 +27,13 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
 resource keyVault 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
   name: keyVaultName
   location: location
-  sku: {
-    family: 'A'
-    name: 'standard'
-  }
   properties: {
+    sku: {
+      family: 'A'
+      name: 'standard'
+    }
+    tenantId: subscription().tenantId
+    accessPolicies: []
     enableRbacAuthorization: false
   }
 }
