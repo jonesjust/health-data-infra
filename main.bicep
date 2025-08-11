@@ -28,6 +28,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
   name: keyVaultName
   location: location
   sku: {
+    family: 'A'
     name: 'standard'
   }
   properties: {
